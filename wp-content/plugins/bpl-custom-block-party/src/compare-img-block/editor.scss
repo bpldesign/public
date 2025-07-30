@@ -1,0 +1,119 @@
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+/* Remove default margin if nested in a figure */
+figure:has(image-compare) { margin-inline: 0; }
+
+image-compare {
+	& {
+		--exposure: 50%;
+		--thumb-background-color: hsla(0, 0%, 100%, 0.9);
+		--thumb-background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 60 60" width="60" height="60" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M20 20 L10 30 L20 40"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M40 20 L50 30 L40 40"/></svg>');
+		--thumb-size: clamp(3em, 10vmin, 5em);
+		--thumb-radius: 50%;
+		--thumb-border-color: hsla(0, 0%, 0%, 0.9);
+		--thumb-border-size: 2px;
+		--focus-width: var(--thumb-border-size);
+		--focus-color: hsl(200, 100%, 80%);
+		--divider-width: 2px;
+		--divider-color: hsla(0, 0%, 0%, 0.9);
+	}
+	& {
+		position: relative;
+		display: flex;
+		width: fit-content;
+		max-width: 100%;
+		margin-inline: auto;
+		img {  height: 500px !important; object-fit: contain; }
+		label {
+			position: absolute;
+			inset: 0;
+			display: flex;
+			align-items: stretch;
+		}
+		[type=range] {
+			cursor: col-resize;
+			appearance: none;
+			-webkit-appearance: none;
+			background: none;
+			border: none;
+			margin: 0 calc(var(--thumb-size) / -2);
+			width: calc(100% + var(--thumb-size));
+			height: unset;
+		}
+		/* Styling range inputs requires separately defining the CSS rules for -moz and -webkit. */
+		/* ! bug in Safari when trying to nest -moz and -webkit together under the same [type=range] */
+		[type=range] {
+			&::-moz-range-track { height: unset; background: transparent; }
+			&::-moz-range-thumb {
+				background-color: var(--thumb-background-color);
+				background-image: var(--thumb-background-image);
+				background-size: 90%;
+				background-position: center center;
+				background-repeat: no-repeat;
+				border-radius: var(--thumb-radius);
+				border: var(--thumb-border-size) var(--thumb-border-color) solid;
+				color: var(--thumb-border-color);
+				width: var(--thumb-size);
+				height: var(--thumb-size);
+				margin: 0;
+			}
+			&:focus::-moz-range-thumb { box-shadow: 0px 0px 0px var(--focus-width) var(--focus-color); }
+		}
+		[type=range] {
+			&::-webkit-slider-runnable-track { height: unset; background: transparent; }
+			&::-webkit-slider-thumb {
+				-webkit-appearance: none;
+				background-color: var(--thumb-background-color);
+				background-image: var(--thumb-background-image);
+				background-size: 90%;
+				background-position: center center;
+				background-repeat: no-repeat;
+				border-radius: var(--thumb-radius);
+				border: var(--thumb-border-size) var(--thumb-border-color) solid;
+				color: var(--thumb-border-color);
+				width: var(--thumb-size);
+				height: var(--thumb-size);
+				margin: 0;
+			}
+			&:focus::-webkit-slider-thumb { box-shadow: 0px 0px 0px var(--focus-width) var(--focus-color); }
+		}
+	}
+	&:not(:defined) {
+		flex-direction: row;
+		overflow-x: auto;
+	}
+	&:defined {
+		flex-direction: column;
+		overflow: clip;
+		.image-2-wrapper {
+			position: absolute;
+			top: 0;
+			/* shadow used for vertical divider */
+			filter: drop-shadow( calc(-1*var(--divider-width)) 0 0 var(--divider-color) );
+			img {
+				--_top-left: calc(var(--exposure) + var(--divider-width)/2);
+				--_bottom-left: calc(var(--exposure) + var(--divider-width)/2);
+				clip-path: polygon(var(--_top-left) 0, 100% 0, 100% 100%, var(--_bottom-left) 100%);
+			}
+		}
+	}
+	/* adjacent figcaption */
+	& + figcaption { 
+		text-align: center; 
+		margin-block-start: .5lh; 
+	}
+	/* utils */
+	.visually-hidden {
+		position: absolute;
+		width: 1px; height: 1px;
+		padding: 0; margin: -1px;
+		overflow: hidden;
+		clip: rect(0, 0, 0, 0);
+		white-space: nowrap; /* added line */
+		border: 0;
+	}
+}

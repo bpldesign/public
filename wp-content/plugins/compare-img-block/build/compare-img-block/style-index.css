@@ -1,0 +1,149 @@
+/*!*********************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/compare-img-block/style.scss ***!
+  \*********************************************************************************************************************************************************************************************************************************************************/
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+.wp-block-create-block-compare-img-block {
+  border: 4px solid rgb(0, 0, 0);
+}
+
+/* Remove default margin if nested in a figure */
+figure:has(image-compare) {
+  margin-inline: 0;
+}
+
+image-compare {
+  /* adjecent figcaption */
+  /* utils */
+}
+image-compare {
+  --exposure: 50%;
+  --thumb-background-color: hsla(0, 0%, 100%, 0.9);
+  --thumb-background-image: url("data:image/svg+xml;utf8,<svg viewbox=\"0 0 60 60\" width=\"60\" height=\"60\" xmlns=\"http://www.w3.org/2000/svg\"><path fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"4\" d=\"M20 20 L10 30 L20 40\"/><path fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"4\" d=\"M40 20 L50 30 L40 40\"/></svg>");
+  --thumb-size: clamp(3em, 10vmin, 5em);
+  --thumb-radius: 50%;
+  --thumb-border-color: hsla(0, 0%, 0%, 0.9);
+  --thumb-border-size: 2px;
+  --focus-width: var(--thumb-border-size);
+  --focus-color: hsl(200, 100%, 80%);
+  --divider-width: 2px;
+  --divider-color: hsla(0, 0%, 0%, 0.9);
+}
+image-compare {
+  position: relative;
+  display: flex;
+  width: -moz-fit-content;
+  width: fit-content;
+  max-width: 100%;
+  margin-inline: auto;
+  /* Styling range inputs requires separately defining the CSS rules for -moz and -webkit. */
+  /* ! bug in Safari when trying to nest -moz and -webkit together under the same [type=range] */
+}
+image-compare img {
+  width: 500px !important;
+  height: 500px !important;
+  max-width: 500px !important;
+}
+image-compare label {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: stretch;
+}
+image-compare [type=range] {
+  cursor: col-resize;
+  -moz-appearance: none;
+       appearance: none;
+  -webkit-appearance: none;
+  background: none;
+  border: none;
+  margin: 0 calc(var(--thumb-size) / -2);
+  width: calc(100% + var(--thumb-size));
+  height: unset;
+}
+image-compare [type=range]::-moz-range-track {
+  height: unset;
+  background: transparent;
+}
+image-compare [type=range]::-moz-range-thumb {
+  background-color: var(--thumb-background-color);
+  background-image: var(--thumb-background-image);
+  background-size: 90%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  border-radius: var(--thumb-radius);
+  border: var(--thumb-border-size) var(--thumb-border-color) solid;
+  color: var(--thumb-border-color);
+  width: var(--thumb-size);
+  height: var(--thumb-size);
+  margin: 0;
+}
+image-compare [type=range]:focus::-moz-range-thumb {
+  box-shadow: 0px 0px 0px var(--focus-width) var(--focus-color);
+}
+image-compare [type=range]::-webkit-slider-runnable-track {
+  height: unset;
+  background: transparent;
+}
+image-compare [type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  background-color: var(--thumb-background-color);
+  background-image: var(--thumb-background-image);
+  background-size: 90%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  border-radius: var(--thumb-radius);
+  border: var(--thumb-border-size) var(--thumb-border-color) solid;
+  color: var(--thumb-border-color);
+  width: var(--thumb-size);
+  height: var(--thumb-size);
+  margin: 0;
+}
+image-compare [type=range]:focus::-webkit-slider-thumb {
+  box-shadow: 0px 0px 0px var(--focus-width) var(--focus-color);
+}
+image-compare:not(:defined) {
+  flex-direction: row;
+  overflow-x: auto;
+}
+image-compare:defined {
+  flex-direction: column;
+  overflow: clip;
+}
+image-compare:defined .image-2-wrapper {
+  position: absolute;
+  top: 0;
+  /* shadow used for vertiacal divider */
+  filter: drop-shadow(calc(-1 * var(--divider-width)) 0 0 var(--divider-color));
+}
+image-compare:defined .image-2-wrapper img {
+  --_top-left: calc(var(--exposure) + var(--divider-width)/2);
+  --_bottom-left: calc(var(--exposure) + var(--divider-width)/2);
+  clip-path: polygon(var(--_top-left) 0, 100% 0, 100% 100%, var(--_bottom-left) 100%);
+}
+image-compare + figcaption {
+  text-align: center;
+  margin-block-start: 0.5lh;
+}
+image-compare .visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap; /* added line */
+  border: 0;
+}
+
+/*# sourceMappingURL=style-index.css.map*/
