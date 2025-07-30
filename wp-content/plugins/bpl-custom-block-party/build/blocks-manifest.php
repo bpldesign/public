@@ -8,7 +8,7 @@ return array(
 		'version' => '0.1.0',
 		'title' => 'Compare Img Block',
 		'category' => 'widgets',
-		'icon' => 'smiley',
+		'icon' => 'format-gallery',
 		'description' => 'Example block scaffolded with Create Block tool.',
 		'example' => array(
 			

@@ -11,10 +11,12 @@ import { Button, PanelBody } from '@wordpress/components';
 export default function Edit( props ) {
 	const { attributes, setAttributes } = props;
 
-	const imageUrlOne = attributes?.imageUrlOne;
+	const placeholderPath = compareImgBlock.pluginUrl + '/imgs/placeholder.jpeg';
+
+	const imageUrlOne = attributes?.imageUrlOne || placeholderPath;
 	const imageAltOne = attributes?.imageAltOne || 'Place holder image one';
 
-	const imageUrlTwo = attributes?.imageUrlTwo;
+	const imageUrlTwo = attributes?.imageUrlTwo || placeholderPath;
 	const imageAltTwo = attributes?.imageAltTwo || 'Place holder image two';
 
     // Define onSelectImage handler to update attributes when an image is selected
