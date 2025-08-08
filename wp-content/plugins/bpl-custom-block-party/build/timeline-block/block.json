@@ -1,0 +1,23 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "create-block/timeline-block",
+  "version": "0.1.0",
+  "title": "Timeline Event Block",
+  "category": "widgets",
+  "icon": "format-gallery",
+  "description": "Add a new event to the timeline.",
+  "example": {},
+  "parent": [
+    "create-block/timeline-frame"
+  ],
+  "supports": {
+    "html": false
+  },
+  "attributes": {},
+  "textdomain": "bpl-custom-block-party",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "render": "file:./render.php"
+}
